@@ -20,8 +20,9 @@ jobs:
           pip install --upgrade pip 
 
       - name: Test
-        run: 
-          flask -app src/app run
+        run: |
+          export FLASK_APP=src/app
+          flask run
 
       - name: Deploy
         # Only run this step if the branch is main
