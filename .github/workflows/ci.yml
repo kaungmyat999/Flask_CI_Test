@@ -22,7 +22,9 @@ jobs:
       - name: Test
         run: |
           export FLASK_APP=src/app
-          flask run
+          flask run -p 5000  & sleep 5
+          curl http://localhost:5000
+          kill $(jobs -p)
 
       - name: Deploy
         # Only run this step if the branch is main
